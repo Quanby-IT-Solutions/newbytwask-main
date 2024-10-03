@@ -19,7 +19,7 @@ const _Subscribe: React.FC = () => {
 
       <div className="w-[707px] grid content-center max-md:mt-10">
         <div className="w-full container flex gap-4 p-[18px] rounded-lg self-center justify-around">
-          <form className="mx-auto" onSubmit={(e) => e.preventDefault()}>
+          <form className="w-full" onSubmit={(e) => e.preventDefault()}>
             <label htmlFor="search-input" className="sr-only">
               Enter your email
             </label>
@@ -27,7 +27,7 @@ const _Subscribe: React.FC = () => {
               <input
                 type="text"
                 id="search-input"
-                className="h-[60px] px-4 py-3 border border-gray-300 rounded-md focus:outline-none"
+                className="w-full h-[60px] px-4 py-3 border border-gray-300 rounded-md focus:outline-none"
                 placeholder="Search"
               />
             </div>

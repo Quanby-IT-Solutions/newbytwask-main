@@ -1,7 +1,6 @@
 // app/layout.tsx
 
 import './globals.css';
-import Header from '@/components/_header';
 import { AuthProvider } from "@/context/authcontext";
 import { Inter } from 'next/font/google';
 
@@ -12,7 +11,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-      <Header />
           {children}
         </AuthProvider>
       </body>
