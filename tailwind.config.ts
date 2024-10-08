@@ -11,6 +11,9 @@ const config: Config = {
       fontFamily: {
         'poppins': ['Poppins'],
       },
+      fontSize: {
+        'c-h': '742px',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

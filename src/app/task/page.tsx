@@ -15,8 +15,7 @@ import { useState } from "react";
 import _RegisterModal from '@/app/(auth)/register/registermodal';
 import _LoginModal from "../(auth)/login/loginmodal";
 
-
-const LandingPage = () => {
+const TaskPage = () => {
   const [openRegister, setOpenRegister] = useState(false)
   const [openLogin, setOpenLogin] = useState(false)
 
@@ -27,10 +26,10 @@ const LandingPage = () => {
   const toggleLoginModal = () => {
     setOpenLogin(!openLogin);
   };
-  
+
   return (
     <main className="w-full">
-      <_Header toggleRegisterModal={toggleRegisterModal} toggleLoginModal={toggleLoginModal} />
+      <_Header toggleRegisterModal={toggleRegisterModal} toggleLoginModal={toggleLoginModal}/>
       
       {/* Hero Section Wrapped in Framer Motion Wrapper for Animation */}
       <_FramerMotionWrapper>
@@ -61,12 +60,12 @@ const LandingPage = () => {
 
       <_Footer />
 
-      <_RegisterModal open={openRegister} onClose={toggleRegisterModal} toggleLoginModal={toggleLoginModal}/> 
+      <_RegisterModal open={openRegister} onClose={toggleRegisterModal} toggleLoginModal={toggleLoginModal}/> {/* Render the Register modal component */}
 
-      <_LoginModal open={openLogin} onClose={toggleLoginModal} toggleRegisterModal={toggleRegisterModal}/>
+      <_LoginModal open={openLogin} onClose={toggleLoginModal} toggleRegisterModal={toggleRegisterModal}/> {/* Render the Login modal component */}
 
     </main>
   );
 };
 
-export default LandingPage;
+export default TaskPage;

@@ -17,42 +17,42 @@ const _RegisterForm = () => {
   };
 
   return (
-    <form onSubmit={handleRegister} className="flex flex-col gap-6">
+    <form onSubmit={handleRegister} className="flex flex-col gap-6 max-sm:gap-3">
       {success && <p className="text-green-500">{success}</p>}
       <div className="flex flex-col">
-        <label htmlFor="fullname" className='text-gray-500 text-[15px]'>Full Name</label>
+        <label htmlFor="fullname" className='pb-1 text-gray-500 text-[15px] max-sm:text-xs'>Full Name</label>
         <input
           type="text"
           placeholder="Enter your Full Name here"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="py-3 px-7 border rounded-2xl bg-gray-200"
+          className="py-3 px-7 border rounded-2xl bg-gray-200 max-sm:text-xs"
           required
         />
       </div>
       <div className="flex flex-col">
-        <label htmlFor="email" className='text-gray-500 tex-[15px]'>Email</label>
+        <label htmlFor="email" className='pb-1 text-gray-500 tex-[15px] max-sm:text-xs'>Email</label>
         <input
           type="email"
           placeholder="Enter your Email here"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="py-3 px-7 border rounded-2xl bg-gray-200"
+          className="py-3 px-7 border rounded-2xl bg-gray-200 max-sm:text-xs"
           required
         />  
       </div>
       <div className="flex flex-col">
-        <label htmlFor="password" className='text-gray-500 text-[15px]'>Password</label>
+        <label htmlFor="password" className='pb-1 text-gray-500 text-[15px] max-sm:text-xs'>Password</label>
         <input
           type="password"
           placeholder="Enter your Password here"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="py-3 px-7 border rounded-2xl bg-gray-200"
+          className="py-3 px-7 border rounded-2xl bg-gray-200 max-sm:text-xs"
           required
         />
       </div>
-      <button type="submit" className="w-fit place-self-center bg-[#60A5FA] text-white text-xl font-medium py-2 px-12 rounded-lg hover:bg-blue-600">
+      <button type="submit" className="w-fit place-self-center bg-[#60A5FA] text-white text-xl max-sm:text-[15px] font-medium py-2 px-12 rounded-lg hover:bg-blue-600">
         Create Account
       </button>
     </form>
@@ -69,12 +69,15 @@ interface ModalBackdropProps {
 
 const _RegisterModal: React.FC<ModalBackdropProps> = ({ open, onClose, toggleLoginModal }) => {
   const [shouldRender, setShouldRender] = useState(false);
+  const [modalScale, setModalScale] = useState('scale-75 opacity-0');
 
   useEffect(() => {
     if (open) {
       setShouldRender(true);
+      setTimeout(() => setModalScale('scale-100 opacity-100'), 10); // Add slight delay for smooth transition
     } else {
-      const timer = setTimeout(() => setShouldRender(false), 300); // Adjust time as needed
+      setModalScale('scale-75 opacity-0');
+      const timer = setTimeout(() => setShouldRender(false), 300);
       return () => clearTimeout(timer);
     }
   }, [open]);
@@ -83,12 +86,12 @@ const _RegisterModal: React.FC<ModalBackdropProps> = ({ open, onClose, toggleLog
 
   return (
     <main onClick={onClose} className={`fixed inset-0 flex justify-center items-center transition-all duration-300 ease-in-out transform ${open ? "visible bg-black/75 backdrop-blur-md" : "invisible"}`}>
-      <div className={`flex justify-center content-center w-fit transition-all duration-300 ease-in-out transform bg-blue-400 ${open ? "scale-100 opacity-100" : "scale-75 opacity-0"}`}>
-        <div onClick={(e) => e.stopPropagation()} className={`container w-[533px] h-auto ml-auto p-24 font-poppins rounded-r-3xl rounded-l-lg transform`}>
+      <div className={`flex justify-center content-center w-fit mx-10 rounded-lg transition-all duration-300 ease-in-out transform bg-blue-400 ${modalScale}`}>
+        <div onClick={(e) => e.stopPropagation()} className={`container w-[533px] max-[1120px]:w-0 h-auto ml-auto p-24 max-[1120px]:p-0 font-poppins rounded-r-3xl rounded-l-lg transform`}>
           <p></p>
         </div>
-        <div onClick={(e) => e.stopPropagation()} className={`container w-fit h-fit mr-auto p-24 font-poppins rounded-l-3xl rounded-r-lg bg-white transition-all duration-300 ease-in-out transform`}>
-          <p className="text-xl font-black mb-7 text-center">Create your Free Account</p>
+        <div onClick={(e) => e.stopPropagation()} className={`container w-fit h-fit mx-auto p-24 max-sm:p-12 font-poppins rounded-l-3xl max-[1120px]:rounded-l-lg rounded-r-lg bg-white transition-all duration-300 ease-in-out transform`}>
+          <p className="text-xl max-sm:text-lg font-black mb-7 text-center">Create your Free Account</p>
           <_RegisterForm />
           <div className="grid place-items-center gap-3 mt-6">
             <div className="flex justify-center gap-1 mt-2 text-gray-500 text-xs">

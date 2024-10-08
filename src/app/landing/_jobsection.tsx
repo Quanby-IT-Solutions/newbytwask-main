@@ -1,5 +1,4 @@
 "use client";
-
 import React from 'react';
 import Image from 'next/image';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
@@ -13,56 +12,50 @@ interface JobsInput {
 
 const JobsCard: React.FC<JobsInput> = ({ jobsCategory, startingPrice, imgPath }) => {
   return (
-    <div className="flex flex-col grow items-start w-fit h-full text-gray-900 bg-white rounded-3xl max-md:px-5 max-md:mt-9 hover:bg-[#93c5fd] transition-colors">
-      <div className="grid content-start max-md:grid-col rounded-t-3xl">
-        <Image src={imgPath} width={320} height={180} className='rounded-t-3xl w-full' alt={`${jobsCategory} image`} />
-        <div className="flex flex-col p-5 max-md:ml-0 max-md:w-full h-full text-center">
-          <h3 className="text-2xl font-bold tracking-tight leading-loose">{jobsCategory}</h3>
-          <p className="mt-1.5 text-lg tracking-normal leading-8">Project starts at ${startingPrice}</p>
-        </div>
+    <div className="flex flex-col bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+      <Image src={imgPath} width={320} height={217} className='w-full h-55 object-cover' alt={`${jobsCategory} image`} />
+      <div className="p-6 text-center">
+        <h3 className="text-xl font-semibold mb-2">{jobsCategory}</h3>
+        <p className="text-gray-600">Projects starting at ${startingPrice}</p>
       </div>
     </div>
   );
 };
 
 const jobs: JobsInput[] = [
-  { jobsCategory: "Web Development", startingPrice: 49, imgPath: "/Image.png" },
+  { jobsCategory: "Website Development", startingPrice: 49, imgPath: "/Image.png" },
   { jobsCategory: "Logo Design", startingPrice: 65, imgPath: "/Image-1.png" },
-  { jobsCategory: "Architecture & Interior Design", startingPrice: 69, imgPath: "/Image-2.png" },
+  { jobsCategory: "Architecture & Interior design", startingPrice: 69, imgPath: "/Image-2.png" },
   { jobsCategory: "Social Media Marketing", startingPrice: 67, imgPath: "/Image-3.png" },
 ];
 
 const _Jobs: React.FC = () => {
   return (
-    <section className="flex flex-col bg-[#C6DFFE]">
-      <div className="flex relative flex-col justify-center items-center px-20 py-40 w-full min-h-[895px] max-md:px-5 max-md:py-24 max-md:max-w-full">
-        <div className="flex relative flex-col mb-0 w-full max-w-[1332px] max-md:mb-2.5 max-md:max-w-full">
-          <div className="flex justify-between">
-            <div className="mt-6 w-fit leading-10 max-md:mr-0.5 max-md:max-w-full">
-              <h1 className="text-5xl font-bold w-[400px] mb-6 tracking-tighter leading-none text-blue-900">
-                Featured jobs
-              </h1>
-              <p className="text-2xl tracking-tight w-[650px] text-blue-900 max-md:max-w-full">
-                Top opportunities handpicked for you. Browse and apply today!
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-px self-end mt-10 text-xl font-bold tracking-tighter">
-              <button className="rounded-l-md bg-white p-4" aria-label="Previous">
-                <ArrowBackIosNewRoundedIcon sx={{ color: 'primary', fontSize: 25 }}/>
-              </button>
-              <button className="rounded-r-md bg-white p-4" aria-label="Next">
-                <ArrowForwardIosRoundedIcon sx={{ color: 'primary', fontSize: 25 }}/>
-              </button>
-            </div>
+    <section className="bg-[#C6DFFE] flex relative flex-col justify-center items-center w-full min-h-[895px]">
+      <div className="container mx-auto flex relative flex-col mb-0 w-full max-md:mb-2.5 px-10 py-24 md:px-20 md:py-44">
+        <div className="flex justify-between items-center mb-8 max-[470px]:flex-col">
+          <div className='w-fit mb-0 md:mb-10 max-[470px]:self-start max-[470px]:mb-4'>
+            <h1 className="mb-6 text-4xl md:text-4xl min-[850px]:text-5xl font-bold tracking-tighter text-blue-900 leading-[78px] max-w-[770px] max-md:leading-[45px]">
+              Featured jobs
+            </h1>
+            <p className="text-lg min-[850px]:text-xl leading-9 w-[300px] min-[660px]:w-[450px] max-w-[650px] text-blue-900/50">
+              Top opportunities handpicked for you. Browse and apply today!
+            </p>
           </div>
-          
-          <div className="mt-20 w-full max-md:mt-10 max-md:max-w-full">
-            <div className="grid grid-cols-4 gap-10 max-md:grid-cols-1">
-              {jobs.map((category, index) => (
-                <JobsCard key={index} {...category} />
-              ))}
-            </div>
+          <div className="flex">
+            <button className="bg-white p-2 rounded-l-xl" aria-label="Previous">
+              <ArrowBackIosNewRoundedIcon sx={{ color: 'primary', fontSize: 20 }}/>
+            </button>
+            <button className="bg-white p-2 rounded-r-xl" aria-label="Next">
+              <ArrowForwardIosRoundedIcon sx={{ color: 'primary', fontSize: 20 }}/>
+            </button>
           </div>
+        </div>
+        
+        <div className="grid max-sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {jobs.map((category, index) => (
+            <JobsCard key={index} {...category} />
+          ))}
         </div>
       </div>
     </section>
