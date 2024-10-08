@@ -43,7 +43,27 @@ const LandingPage = () => {
         <_HeroSection />
       </_FramerMotionWrapper>
 
-      {/* ... other sections ... */}
+      {/* Some Custom Section with GSAP Animation */}
+
+      <_GSAPAnimation>
+        <_Category />
+      </_GSAPAnimation>
+      
+      <_GSAPAnimation>
+        <_Contents />
+      </_GSAPAnimation>
+
+      <_GSAPAnimation>
+        <_Jobs />
+      </_GSAPAnimation>
+
+      <_GSAPAnimation>
+        <_News />
+      </_GSAPAnimation>
+
+      <_GSAPAnimation>
+        <_Subscribe />
+      </_GSAPAnimation>
 
       <_Footer />
 
