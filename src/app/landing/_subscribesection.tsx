@@ -1,53 +1,50 @@
 "use client";
 import React from "react";
-import EmailIcon from "@mui/icons-material/Email";
+
+const EmailIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-10 h-10">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  </svg>
+);
 
 const _Subscribe: React.FC = () => {
   return (
-    <section className="flex flex-col mt-44 gap-5 items-center rounded-none">
-      <div className="w-fit flex items-center justify-center p-7 text-xl font-bold tracking-tight leading-9 text-center text-white whitespace-nowrap bg-[#3b82f6] rounded-full max-md:pl-5">
-        <EmailIcon sx={{ fontSize: 40 }} />
+    <section className="flex flex-col items-center container mx-auto w-fit px-10 py-24 md:px-20 md:py-44">
+      <div className="w-16 h-16 flex items-center justify-center p-4 text-xl font-bold text-white bg-blue-500 rounded-full">
+        <EmailIcon />
       </div>
-      <div className="text-center">
-        <h1 className="z-10 mt-0 text-5xl font-bold tracking-tighter leading-none text-gray-900 max-md:max-w-full">
+      <div className="text-center mt-8">
+        <h1 className="text-2xl md:text-4xl min-[850px]:text-5xl font-bold tracking-tight text-gray-900">
           Get our latest updates
         </h1>
-        <p className="mt-5 text-2xl tracking-tight leading-10 text-gray-900 bg-blend-normal w-[707px] max-md:max-w-full">
+        <p className="mt-4 text-md min-[850px]:text-xl text-gray-600 max-w-2xl mx-auto">
           Stay updated with our latest news and job opportunities!
         </p>
       </div>
 
-      <div className="w-[707px] grid content-center max-md:mt-10">
-        <div className="w-full container flex gap-4 p-[18px] rounded-lg self-center justify-around">
-          <form className="w-full" onSubmit={(e) => e.preventDefault()}>
-            <label htmlFor="search-input" className="sr-only">
+      <div className="w-full max-w-2xl mt-12">
+        <form className="flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
+          <div className="flex-grow">
+            <label htmlFor="email-input" className="sr-only">
               Enter your email
             </label>
-            <div className="relative">
-              <input
-                type="text"
-                id="search-input"
-                className="w-full h-[60px] px-4 py-3 border border-gray-300 rounded-md focus:outline-none"
-                placeholder="Search"
-              />
-            </div>
-          </form>
-
-          <button className="bg-[#1c3c8c] text-white p-[12px_50px] rounded-lg hover:bg-[#558bff] transition">
+            <input
+              type="email"
+              id="email-input"
+              className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              placeholder="Enter your email"
+            />
+          </div>
+          <button className="w-full sm:w-auto bg-blue-900 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors">
             Subscribe
           </button>
-        </div>
-        <p className="mt-2 text-lg tracking-tight leading-10text-base-6  text-center text-[#161C2D] bg-blend-normal max-md:max-w-full">
-          We’ll never share your details with third parties.
+        </form>
+        <p className="mt-4 text-sm text-gray-600 text-center">
+          Well never share your details with third parties.
           <br />
           View our Privacy Policy for more info.
         </p>
       </div>
-      <img
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/349e292a7e3a170dbcf64c02939090e20f7fc600c443a87dd7ac567029488beb?placeholderIfAbsent=true&apiKey=dc67fb80454e414ca23e0d25fe2402bd"
-        alt=""
-        className="object-contain self-stretch mt-36 w-full aspect-[1000] max-md:mt-10 max-md:max-w-full"
-      />
     </section>
   );
 };

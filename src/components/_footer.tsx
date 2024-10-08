@@ -1,20 +1,69 @@
-"use client"; // Make sure it’s a Client Component for interactivity
+"use client";
+import Link from "next/link";
 
-import Link from 'next/link';
+interface LinksInput {
+  title: string;
+  links: { href: string; label: string }[];
+}
 
-const _Footer = () => {
+const LinksSection: React.FC<LinksInput> = ({ title, links }) => {
   return (
-    <footer className="bg-[#1c3c8c] text-white py-36">
-      <div className="container mx-auto flex justify-evenly gap-8 px-8 text-lg">
+    <div>
+      <h3 className="mb-8 text-slate-400">{title}</h3>
+      <ul className="space-y-4">
+        {links.map((link, index) => (
+          <li key={index}>
+            <Link href={link.href} className="hover:underline hover:text-blue-400">
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+const _Footer: React.FC = () => {
+  const companyLinks = [
+    { href: "/landing", label: "About Us" },
+    { href: "/directory", label: "Contact Us" },
+    { href: "/gallery", label: "Careers" },
+    { href: "/faq", label: "Press" },
+  ];
+
+  const productsLinks = [
+    { href: "/landing", label: "Features" },
+    { href: "/directory", label: "Pricing" },
+    { href: "/gallery", label: "News" },
+    { href: "/faq", label: "Help Desk" },
+    { href: "/login", label: "Support" },
+  ];
+
+  const servicesLinks = [
+    { href: "/landing", label: "Digital Marketing" },
+    { href: "/directory", label: "Content Writing" },
+    { href: "/gallery", label: "SEO for Business" },
+    { href: "/faq", label: "UI Design" },
+  ];
+
+  const legalLinks = [
+    { href: "/landing", label: "Privacy Policy" },
+    { href: "/directory", label: "Terms & Conditions" },
+    { href: "/gallery", label: "Return Policy" },
+  ];
+
+  return (
+    <footer className="bg-[#1c3c8c] text-white py-12 md:py-24">
+      <div className="container mx-auto flex justify-evenly gap-8 px-10 md:px-20 text-lg max-lg:flex-col">
         {/* About Section */}
-        <div className="w-[337px] grid content-evenly gap-8">
-          <img className='h-[63px]' src="https://cdn.builder.io/api/v1/image/assets/TEMP/c393fb4d98d77eb3cb0ee04acb1cc7e93bc7d7784c5e8f8ef8df0c8320a2add1" alt="Company logo" />
-          <div className="w-[329px] text-lg text-stone-200">
+        <div className="w-[337px] max-lg:w-fit grid content-evenly max-lg:self-center gap-8">
+          <img className="h-[63px] max-lg:justify-self-center" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c393fb4d98d77eb3cb0ee04acb1cc7e93bc7d7784c5e8f8ef8df0c8320a2add1" alt="Company logo" />
+          <div className="w-[329px] max-lg:w-fit text-lg max-md:text-base max-lg:text-center text-stone-200">
             <p>With lots of unique blocks, you can easily build a page without coding. Build your next landing page.</p>
           </div>
           {/* Social Media Section */}
           <div>
-            <ul className="flex space-x-4">
+            <ul className="flex justify-center space-x-8 text-gray-500">
               <li>
                 <a
                   // href="https://twitter.com"
@@ -69,111 +118,14 @@ const _Footer = () => {
             </ul>
           </div>
         </div>
-         {/* Links Section */}
-         <div>
-            <h3 className="mb-4">Company</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/landing" className="hover:underline hover:text-blue-400">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/directory" className="hover:underline hover:text-blue-400">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="hover:underline hover:text-blue-400">
-                  Careers
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="hover:underline hover:text-blue-400">
-                  Press
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="mb-4">Products</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/landing" className="hover:underline hover:text-blue-400">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link href="/directory" className="hover:underline hover:text-blue-400">
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="hover:underline hover:text-blue-400">
-                  News
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="hover:underline hover:text-blue-400">
-                  Help Desk
-                </Link>
-              </li>
-              <li>
-                <Link href="/login" className="hover:underline hover:text-blue-400">
-                  Support
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="mb-4">Services</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/landing" className="hover:underline hover:text-blue-400">
-                  Digital Marketing
-                </Link>
-              </li>
-              <li>
-                <Link href="/directory" className="hover:underline hover:text-blue-400">
-                  Content Writing
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="hover:underline hover:text-blue-400">
-                  SEO for Business
-                </Link>
-              </li>
-              <li>
-                <Link href="/faq" className="hover:underline hover:text-blue-400">
-                  UI Design
-                </Link>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h3 className="mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/landing" className="hover:underline hover:text-blue-400">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/directory" className="hover:underline hover:text-blue-400">
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href="/gallery" className="hover:underline hover:text-blue-400">
-                  Return Policy
-                </Link>
-              </li>
-            </ul>
+        <div className="grid max-[460px]:grid-cols-1 max-sm:grid-cols-2 max-lg:grid-cols-3 lg:grid-cols-4 gap-8 text-lg">
+          {/* Links Section */}
+          <LinksSection title="Company" links={companyLinks} />
+          <LinksSection title="Products" links={productsLinks} />
+          <LinksSection title="Services" links={servicesLinks} />
+          <LinksSection title="Legal" links={legalLinks} />
           </div>
       </div>
-
-        
-        
 
       {/* Copyright Section */}
       <div className="mt-24 text-center text-sm">
