@@ -12,7 +12,7 @@ import _Header from "@/components/_header";
 import _Footer from "@/components/_footer";
 import _FramerMotionWrapper from "@/components/animations/_framermotionwrapper";
 import _GSAPAnimation from "@/components/animations/_gsapanimation";
-import AuthSliderModal from "../(auth)/AuthSliderModal";
+import _AuthSliderModal from "../(auth)/_authslidermodal";
 
 const LandingPage = () => {
   const [openRegister, setOpenRegister] = useState(false);
@@ -68,7 +68,7 @@ const LandingPage = () => {
       <_Footer />
 
       {/* Render AuthSliderModal */}
-      <AuthSliderModal
+      <_AuthSliderModal
         open={openRegister || openLogin}
         onClose={closeModal}
         isLogin={openLogin}

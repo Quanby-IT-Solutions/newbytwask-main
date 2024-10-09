@@ -82,7 +82,7 @@ interface AuthSliderModalProps {
   isLogin: boolean;
 }
 
-const AuthSliderModal: React.FC<AuthSliderModalProps> = ({ open, onClose, isLogin: initialIsLogin }) => {
+const _AuthSliderModal: React.FC<AuthSliderModalProps> = ({ open, onClose, isLogin: initialIsLogin }) => {
   const [isLogin, setIsLogin] = useState(initialIsLogin);
   const [error, setError] = useState<string | null>(null);
   const { login } = useAuth();
@@ -186,4 +186,4 @@ const AuthSliderModal: React.FC<AuthSliderModalProps> = ({ open, onClose, isLogi
   );
 };
 
-export default AuthSliderModal;
+export default _AuthSliderModal;

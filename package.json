@@ -9,14 +9,14 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate"
-},
+  },
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@fontsource/roboto": "^5.1.0",
     "@mui/icons-material": "^6.1.1",
     "@mui/material": "^6.1.1",
-    "framer-motion": "^11.9.0",
+    "framer-motion": "^11.11.1",
     "gsap": "^3.12.5",
     "lottie-react": "^2.4.0",
     "next": "14.2.10",

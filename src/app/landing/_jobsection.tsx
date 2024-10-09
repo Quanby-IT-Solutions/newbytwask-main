@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
+import { useRouter } from 'next/navigation'
 import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
 
 interface JobsInput {
@@ -30,6 +30,9 @@ const jobs: JobsInput[] = [
 ];
 
 const _Jobs: React.FC = () => {
+  const router = useRouter()
+
+
   return (
     <section className="bg-[#C6DFFE] flex relative flex-col justify-center items-center w-full min-h-[895px]">
       <div className="container mx-auto flex relative flex-col mb-0 w-full max-md:mb-2.5 px-10 py-24 md:px-20 md:py-44">
@@ -43,10 +46,8 @@ const _Jobs: React.FC = () => {
             </p>
           </div>
           <div className="flex">
-            <button className="bg-white p-2 rounded-l-xl" aria-label="Previous">
-              <ArrowBackIosNewRoundedIcon sx={{ color: 'primary', fontSize: 20 }}/>
-            </button>
-            <button className="bg-white p-2 rounded-r-xl" aria-label="Next">
+            <button onClick={() => router.push('/homepage')} className=" p-2 rounded-l-xl text-xl text-gray-600 font-bold">
+              Browse all available task
               <ArrowForwardIosRoundedIcon sx={{ color: 'primary', fontSize: 20 }}/>
             </button>
           </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useAuth } from '@/context/authcontext';
-{/*import Link from 'next/link';*/}
+import { usePathname } from 'next/navigation'; 
 
 
 interface HeaderProps {
@@ -11,31 +11,38 @@ interface HeaderProps {
 
 const _Header: React.FC<HeaderProps> = ({ toggleRegisterModal, toggleLoginModal }) => {
   const { user, logout } = useAuth(); // Access global auth state via the useAuth hook
-
-  
+  const pathname = usePathname(); 
+  const isHomePage = pathname === '/homepage'; 
 
   return (
-    <header className="bg-white text-black p-4 shadow-[0px_0px_10px_0px_rgba(0,0,0,0.1)]">
+    <header className="bg-white text-black p-5 border-2 border-b-gray-200">
       {/* Navigation container */}
-      <nav className="flex justify-between items-center px-4 lg:px-8">
+      <nav className="flex justify-between items-center h-fit px-4 lg:px-8">
         
         {/* Logo */}
         <a href="" className="flex-shrink-0">
           <img
-            className="w-[337px] max-h-[63px] max-md:w-[200px] md:w-[300px]"
+            className="w-[337px] max-h-[73px] max-md:w-[200px] md:w-[300px]"
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/c393fb4d98d77eb3cb0ee04acb1cc7e93bc7d7784c5e8f8ef8df0c8320a2add1"
             alt="Company logo"
           />
         </a>
 
         {/* Desktop Navigation Links */}
-        <div className="hidden md:flex text-lg font-bold">
+        <div className={`hidden md:flex ${isHomePage ? 'text-xl font-normal' : 'text-lg font-semibold'}`}>
           <ul className="flex gap-8 items-center">
             <li>
               <button className="hover:text-blue-500">
                 <b>Services</b>
               </button>
             </li>
+            {isHomePage && (
+              <li>
+                <button className="px-10 py-3 hover:bg-blue-500 text-blue-500 hover:text-white border-2 border-blue-500 rounded-xl ">
+                  <b>Become a Tasker</b>
+                </button>
+              </li>
+            )}
             {!user ? (
               <li>
                 <button onClick={toggleRegisterModal} className="hover:text-blue-500">
