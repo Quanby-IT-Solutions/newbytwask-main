@@ -1,6 +1,8 @@
 "use client";
 
 import React from 'react';
+import { useState } from "react";
+import { motion } from "framer-motion";
 import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 
 interface TaskCategory {
@@ -9,15 +11,65 @@ interface TaskCategory {
 }
 
 const CategoryCard: React.FC<TaskCategory> = ({ title, jobCount }) => {
-  return (
-    <div className="group relative flex flex-col items-start py-5 min-[1046px]:py-9 pl-8 pr-8 min-[1046px]:pr-16 w-full h-fit text-gray-900 bg-white rounded-xl hover:bg-blue-500 ">
-      <h2 className="self-start text-lg min-[1046px]:text-xl font-bold text-gray bg-blend-normal max-md:max-w-full max-md:text-lg group-hover:text-white">{title}</h2>
-      <p className="mt-1.5 text-lg group-hover:text-white">{jobCount} Jobs</p>
+  const [isHover, setIsHover] = useState(false);
 
-      <button className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out bg-blue-100/10 text-black p-2 rounded-full shadow-md">
-        <ArrowForwardRoundedIcon className="m-px min-[1280px]:m-2" />
-      </button>
-    </div>
+  const handleMouseEnter = () => setIsHover(true);
+  const handleMouseLeave = () => setIsHover(false);
+
+  return (
+    <motion.div
+    whileHover={{ scale: 1.05 }} 
+    onMouseEnter={handleMouseEnter}
+    onMouseLeave={handleMouseLeave}
+    className="group relative flex flex-col items-start py-5 min-[1046px]:py-9 pl-8 pr-8 min-[1046px]:pr-16 w-full h-fit text-gray-900 bg-white rounded-xl overflow-hidden">
+      <motion.h2 
+      className="z-20 self-start text-lg min-[1046px]:text-xl font-bold text-gray bg-blend-normal max-md:max-w-full max-md:text-lg "
+      style={{
+        color: isHover ? "white" : "black",
+        transition: "color 0.3s ease-in-out", 
+      }}>
+        <span className="relative z-20">{title}</span>
+        <motion.span
+          className="absolute inset-0 z-10"
+          animate={{ x: isHover ? '0%' : '100%' }}
+          initial={{ x: '100%' }}
+          transition={{ type: 'tween', duration: 0.5 }}
+          style={{
+            clipPath: isHover
+              ? "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+              : "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)", // clip-path for the transition
+          }}
+        ></motion.span>
+      </motion.h2>
+      <motion.p
+        className="z-20 mt-1.5 text-lg relative"
+        style={{
+          color: isHover ? "white" : "black",
+          transition: "color 0.3s ease-in-out", 
+        }}
+      >
+        <span className="relative z-20">{jobCount} Jobs</span>
+        <motion.span
+          className="absolute inset-0 z-10"
+          animate={{ x: isHover ? '0%' : '100%' }}
+          initial={{ x: '100%' }}
+          transition={{ type: 'tween', duration: 0.5 }}
+          style={{
+            clipPath: isHover
+              ? "polygon(0 0, 100% 0, 100% 100%, 0 100%)"
+              : "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)", // clip-path for the transition
+          }}
+        ></motion.span>
+      </motion.p>
+      <motion.div 
+      animate={{ x: isHover ? 0 : '100%' }}
+      transition={{ type: 'tween', duration: .5 }}
+      className="absolute z-0 right-0 top-0 min-[1046px]:py-9 pl-8 pr-8 min-[1046px]:pr-16 w-full h-full text-gray-900 bg-blue-500 rounded-xl">
+        <motion.button className="absolute z-20  right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 ease-in-out bg-blue-100/10 text-white p-2 rounded-full shadow-md">
+          <ArrowForwardRoundedIcon className="m-px min-[1280px]:m-2" />
+        </motion.button>
+      </motion.div>
+    </motion.div>
   );
 };
 
@@ -49,7 +101,7 @@ const Category: React.FC = () => {
               With a wide range of task categories, you can easily post jobs or find the right help - no hassle required.
             </p>
           </div>
-          <div className="flex gap-5 self-end mt-10 text-md min-[850px]:text-xl font-bold tracking-tighter text-green-400 hover:text-green-300">
+          <div className="flex max-[820px]:self-end max-[820px]:mt-5 text-md min-[850px]:text-xl font-bold tracking-tighter text-green-400 hover:text-green-300">
               <button className="basis-auto">
                 Explore all categories
                 <ArrowForwardRoundedIcon className="ml-4" />

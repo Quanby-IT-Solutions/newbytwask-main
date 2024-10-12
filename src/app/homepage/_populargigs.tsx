@@ -1,8 +1,14 @@
 "use client";
 
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
+
 import React from 'react';
-import Image from 'next/image';
-import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import { useMediaQuery } from '@mui/material';
+import { useState, useEffect, useRef } from "react";
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
@@ -19,42 +25,46 @@ interface TaskCategory {
 }
 
 const CategoryCard: React.FC<TaskCategory> = ({ username, level, description, avgreview, reviews, startingprice }) => {
+  const isMdScreen = useMediaQuery('(min-width: 768px)');
+  const fontSize = isMdScreen ? 30 : 25;
+
   return (
-    <div className="group relative flex flex-col items-start w-fit h-fit text-gray-900  bg-white border-2 border-gray-200 rounded-xl">
-      <Image 
-            src={'/IMG-1.png'}
-            width={322}
-            height={193}
-            alt='image'/>
-      <div className="items-start p-4 w-[322px] h-fit text-gray-900 border border-gray-200">
-        <div className='flex gap-4 pb-5'>
+    <div className="group relative flex flex-col items-start w-[242px] md:w-[322px] h-fit text-gray-900  bg-white border-2 border-gray-200 rounded-xl">
+      <div className='w-full h-[142px] md:h-[190px]'>
+        <img src={'/IMG-1.png'} alt='image' className='w-full h-full'/>
+      </div>
+      <div className="flex flex-col items-start p-3 md:p-4 w-[240px] md:w-[322px] h-fit text-gray-900">
+        <div className='flex gap-4 pb-2.5 md:pb-5'>
             <div className='self-center relative flex items-center justify-center w-fit h-fit rounded-full'>
-              <AccountCircleRoundedIcon className='self-center text-gray-400' sx={{ fontSize: 30 }}/>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
               <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
             </div>
             <div>
-                <p className="self-start text-base font-semibold text-gray bg-blend-normal">{username}</p>
-                <p className="self-start text-lg text-gray-500 font-medium text-gray bg-blend-normal">Level {level} Tasker</p>
+                <p className="self-start text-sm md:text-base font-semibold text-gray bg-blend-normal">{username}</p>
+                <p className="self-start text-base md:text-lg text-gray-500 font-medium text-gray bg-blend-normal">Level {level} Tasker</p>
             </div>
         </div>
         
-        <p className="pb-5 text-xl font-regular">{description}</p>
+        <p className="w-full h-[150px] md:h-[200px] mb-2.5 md:mb-5 text-lg md:text-xl font-regular overflow-x-hidden overflow-y-auto no-scrollbar">{description}</p>
         <div className='flex gap-1'>
-          <div className='flex gap-1 text-base text-yellow-400'>
-            <StarRateRoundedIcon className='self-center' sx={{ fontSize: 30 }}/>
-            <p className="mt-1.5 text-lg font-bold">{avgreview}</p>
+          <div className='flex gap-1 text-yellow-400'>
+            <StarRateRoundedIcon className='self-center' sx={{ fontSize }}/>
+            <p className="mt-1.5 text-base md:text-lg font-bold">{avgreview}</p>
           </div>
-          <p className="mt-1.5 text-lg text-gray-400 font-regular">({reviews})</p>
+          <p className="mt-1.5 text-base md:text-lg text-gray-400 font-regular">({reviews})</p>
         </div>
       </div>
-      <div className="flex justify-between w-full p-4 border border-t-gray-200">
+      <div className="flex justify-between w-full p-3 md:p-4 border-t border-gray-200">
         <div className="flex text-gray-400">
-          <MenuRoundedIcon className='self-center' sx={{ fontSize: 30 }}/>
-          <FavoriteRoundedIcon className='self-center' sx={{ fontSize: 30 }}/>
+          <MenuRoundedIcon className='self-center' sx={{ fontSize }}/>
+          <FavoriteRoundedIcon className='self-center' sx={{ fontSize }}/>
         </div>
         <div className="flex flex-col content-center text-gray-400">
-          <p className="text-md font-bold text-gray-400">Starting at</p>
-          <p className="place-self-end text-xl font-regular">{startingprice}</p>
+          <p className="text-base md:text-lg font-bold">Starting at</p>
+          <p className="place-self-end text-lg md:text-xl text-gray-800 font-regular">{startingprice}</p>
         </div>
       </div>
     </div>
@@ -62,7 +72,7 @@ const CategoryCard: React.FC<TaskCategory> = ({ username, level, description, av
 };
 
 const categories: TaskCategory[] = [
-  { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
+  { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UXsdfsdfsffdhdngnhjmhngbfdv cbnhtgfvvggegjejgnenge gjoegeg jege gorengor gorgwk gjrgrke ge gdfgdfggdfg and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
   { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
   { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
   { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
@@ -77,26 +87,80 @@ const categories: TaskCategory[] = [
 ];
 
 const _PopularGigs: React.FC = () => {
+  const [isAtStart, setIsAtStart] = useState(true); 
+  const [isAtEnd, setIsAtEnd] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const isMdScreen = useMediaQuery('(min-width: 768px)');
+  const fontSize = isMdScreen ? 30 : 20;
+
+  const checkScrollPosition = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setIsAtStart(scrollLeft === 0); // If scrolled all the way to the left
+      setIsAtEnd(scrollLeft + clientWidth >= scrollWidth); // If scrolled all the way to the right
+    }
+  };
+
+  // UseEffect to listen for scroll changes and update button states
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.addEventListener("scroll", checkScrollPosition);
+    }
+    return () => {
+      if (scrollRef.current) {
+        scrollRef.current.removeEventListener("scroll", checkScrollPosition);
+      }
+    };
+  }, []);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const scrollAmount = 300;
+      if (direction === "left") {
+        scrollRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      } else {
+        scrollRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    }
+  };
+
   return (
-    <section className="relative px-10 pb-20 h-fit text-gray-700">
-      <div className="relative mx-auto">
-        <div className="flex flex-row justify-between">
-            <p className="flex text-3xl font-bold tracking-tighter leading-[78px] max-md:leading-[45px]">
-                Most popular Task in <p className="ml-3 text-3xl text-blue-500 font-bold tracking-tighter leading-[78px] max-md:leading-[45px]">Nearby Task </p>
-            </p>
-            <div className="flex justify-between">
-              <button className="flex text-gray-700 font-regular gap-10">
-                <ArrowBackIosRoundedIcon className='self-center p-1 bg-white rounded-full border border-gray-400' sx={{ color: 'primary', fontSize: 30 }}/>
-                <ArrowForwardIosRoundedIcon className='self-center p-1 bg-white rounded-full border border-gray-400' sx={{ color: 'primary', fontSize: 30 }}/>
-              </button>
-            </div>
+    <section className="relative px-4 md:px-10 pb-10 md:pb-20 h-fit text-gray-700">
+      <div className="flex justify-between items-center">
+        <div className="flex flex-row max-[480px]:flex-col py-4 sm:py-8 text-xl sm:text-2xl md:text-3xl font-bold ">
+          <p>Most popular Task in</p>
+          <p className='min-[480px]:pl-1 sm:pl-2 text-blue-500'>Nearby Task</p>
         </div>
-        <div className="w-full">
-          <div className="flex w-full flex-row gap-y-10 gap-x-16 overflow-clip">
-            {categories.map((category, index) => (
-              <CategoryCard key={index} {...category} />
-            ))}
+        <div className="flex gap-4"> 
+          <div className={`w-fit h-fit rounded-full ${isAtStart ? "bg-gray-100/50 border border-gray-200 cursor-not-allowed" : "bg-white border border-gray-200"}`}>
+            <button
+              onClick={() => scroll("left")}
+              disabled={isAtStart} // Disable if at the start
+              className={`p-1.5  md:p-2 h-full w-full`}
+            >
+              <ArrowBackIosRoundedIcon sx={{ fontSize }}/>
+            </button>
           </div>
+          <div className={`w-fit h-fit rounded-full ${isAtEnd ? "bg-gray-100/50 border border-gray-200 cursor-not-allowed" : "bg-white border border-gray-200"}`}>
+            <button
+              onClick={() => scroll("right")}
+              disabled={isAtEnd} // Disable if at the end
+              className={`p-1.5 md:p-2 h-full w-full`}
+            >
+              <ArrowForwardIosRoundedIcon sx={{ fontSize }}/>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="relative overflow-hidden">
+        <div
+          ref={scrollRef}
+          className="flex gap-3 md:gap-6 overflow-x-auto no-scrollbar"
+        >
+          {categories.map((category, index) => (
+            <CategoryCard key={index} {...category} />
+          ))}
         </div>
       </div>
     </section>

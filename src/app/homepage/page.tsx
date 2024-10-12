@@ -8,7 +8,6 @@ import _MayLikeGigs from "./_maylikegigs";
 import _VeriProService from "./_veriproservice";
 import _Footer from "@/components/_footer";
 import _FramerMotionWrapper from "@/components/animations/_framermotionwrapper";
-import _GSAPAnimation from "@/components/animations/_gsapanimation";
 import _AuthSliderModal from "../(auth)/_authslidermodal";
 
 
