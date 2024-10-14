@@ -9,7 +9,6 @@ import {
 import React from 'react';
 import { useMediaQuery } from '@mui/material';
 import { useState, useEffect, useRef } from "react";
-import { useRouter } from 'next/navigation'
 import StarRateRoundedIcon from '@mui/icons-material/StarRateRounded';
 import MenuRoundedIcon from '@mui/icons-material/MenuRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
@@ -27,8 +26,8 @@ interface TaskCategory {
 
 const CategoryCard: React.FC<TaskCategory> = ({ username, level, description, avgreview, reviews, startingprice }) => {
   const isMdScreen = useMediaQuery('(min-width: 768px)');
-  const fontSize = isMdScreen ? 30 : 25;
-  
+  const fontSize = isMdScreen ? 25 : 20;
+
   return (
     <div className="group relative flex flex-col items-start w-[242px] md:w-[322px] h-fit text-gray-900  bg-white border-2 border-gray-200 rounded-xl">
       <div className='w-full h-[142px] md:h-[190px]'>
@@ -38,24 +37,24 @@ const CategoryCard: React.FC<TaskCategory> = ({ username, level, description, av
         <div className='flex gap-4 pb-2.5 md:pb-5'>
             <div className='self-center relative flex items-center justify-center w-fit h-fit rounded-full'>
               <Avatar>
-                <AvatarImage className="w-10 h-10" src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarImage className="w-[30px] h-[30px]" src="https://github.com/shadcn.png" alt="@shadcn" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
+              <div className="absolute top-0 right-0 w-2.5 h-2.5 bg-green-500 rounded-full border-2 border-white"></div>
             </div>
             <div>
                 <p className="self-start text-sm md:text-base font-semibold text-gray bg-blend-normal">{username}</p>
-                <p className="self-start text-base md:text-lg text-gray-500 font-medium text-gray bg-blend-normal">Level {level} Tasker</p>
+                <p className="self-start text-sm md:text-base text-gray-500 font-medium text-gray bg-blend-normal">Level {level} Tasker</p>
             </div>
         </div>
         
-        <p className="w-full h-[150px] md:h-[200px] mb-2.5 md:mb-5 text-lg md:text-xl font-regular overflow-x-hidden overflow-y-auto no-scrollbar">{description}</p>
+        <p className="w-full h-[150px] md:h-[100px] mb-2.5 md:mb-5 text-base md:text-lg font-regular overflow-x-hidden overflow-y-auto no-scrollbar">{description}</p>
         <div className='flex gap-1'>
           <div className='flex gap-1 text-yellow-400'>
             <StarRateRoundedIcon className='self-center' sx={{ fontSize }}/>
-            <p className="mt-1.5 text-base md:text-lg font-bold">{avgreview}</p>
+            <p className="mt-1.5 text-sm md:text-base font-bold">{avgreview}</p>
           </div>
-          <p className="mt-1.5 text-base md:text-lg text-gray-400 font-regular">({reviews})</p>
+          <p className="mt-1.5 text-sm md:text-base text-gray-400 font-regular">({reviews})</p>
         </div>
       </div>
       <div className="flex justify-between w-full p-3 md:p-4 border-t border-gray-200">
@@ -64,7 +63,7 @@ const CategoryCard: React.FC<TaskCategory> = ({ username, level, description, av
           <FavoriteRoundedIcon className='self-center' sx={{ fontSize }}/>
         </div>
         <div className="flex flex-col content-center text-gray-400">
-          <p className="text-base md:text-lg font-bold">Starting at</p>
+          <p className="text-xs md:text-sm font-bold">Starting at</p>
           <p className="place-self-end text-lg md:text-xl text-gray-800 font-regular">{startingprice}</p>
         </div>
       </div>
@@ -73,6 +72,13 @@ const CategoryCard: React.FC<TaskCategory> = ({ username, level, description, av
 };
 
 const categories: TaskCategory[] = [
+  { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UX and Frontend Designer/DeveloperHardworking UI/UXsdfsdfsffdhdngnhjmhngbfdv cbnhtgfvvggegjejgnenge gjoegeg jege gorengor gorgwk gjrgrke ge gdfgdfggdfg and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
+  { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
+  { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
+  { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
+  { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
+  { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
+  { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
   { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
   { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
   { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
@@ -80,16 +86,14 @@ const categories: TaskCategory[] = [
   { username: "Boss Angelo", level: 10, description: "Hardworking UI/UX and Frontend Designer/Developer", avgreview: 10, reviews: 7, startingprice: "1,000",},
 ];
 
-const _VeriProService: React.FC = () => {
-  const router = useRouter()
+const _Recommended: React.FC = () => {
   const [isAtStart, setIsAtStart] = useState(true); 
   const [isAtEnd, setIsAtEnd] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const iscXLScreen = useMediaQuery('(min-width: 1750px)');
   const isMdScreen = useMediaQuery('(min-width: 768px)');
   const fontSize = isMdScreen ? 30 : 20;
-  
+
   const checkScrollPosition = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
@@ -122,57 +126,46 @@ const _VeriProService: React.FC = () => {
   };
 
   return (
-    <section className="relative px-10 pb-20 h-fit text-gray-700">
-      <div className="relative mx-auto">
-        <div className="flex flex-row justify-between pb-4 lg:pb-16 px-0 lg:px-10">
-          <div className="flex flex-col justify-between"> 
-            <div className="flex flex-row max-[810px]:flex-col py-4 md:py-8 text-xl sm:text-2xl md:text-3xl font-bold ">
-              <p>Verified Pro Services in</p>
-              <p className='pl-1 min-[810px]: \sm:pl-2 text-teal-500'>Nearby Task</p>
-            </div>
-              <p className="flex text-sm md:text-base text-gray-400 leading-8 font-regular tracking-tighter">
-                Hand-vetted talent for all your professional needs. 
-              </p>
-          </div> 
-          <div className="flex flex-row justify-between items-center"> 
-            {!iscXLScreen && (
-              <div className={`w-fit h-fit rounded-full ${isAtStart ? "bg-gray-100/50 border border-gray-200 cursor-not-allowed" : "bg-white border border-gray-200"}`}>
-                <button
-                  onClick={() => scroll("left")}
-                  disabled={isAtStart} 
-                  className={`p-1.5  md:p-2 h-full w-full`}
-                >
-                  <ArrowBackIosRoundedIcon className={`${isAtStart ? "text-teal-400/50" : "text-teal-400"}`} sx={{ fontSize }}/>
-                </button>
-              </div>)}
-            <div className="flex">
-              <button onClick={() => router.push('/homepage')} className=" p-2 rounded-l-xl text-xl text-teal-500 font-regular">
-                See all
+    <section className="relative h-fit mb-20 text-gray-700 bg-gray-50/50 border border-gray-200 rounded-xl">
+      <div className="flex justify-between items-center">
+        <div className="flex flex-row max-[480px]:flex-col px-4 sm:px-10 pt-4 sm:pt-10 text-xl sm:text-2xl md:text-3xl font-bold ">
+          <p>Recommended For You</p>
+        </div>
+      </div>
+      <div className="relative overflow-hidden">
+        <div className="absolute z-10 top-1/2 w-full flex justify-between  px-0 md:px-4 gap-4"> 
+            <div className={`w-fit h-fit rounded-full ${isAtStart ? "bg-gray-100/50 border border-gray-200 cursor-not-allowed" : "bg-white border border-gray-200"}`}>
+              <button
+                onClick={() => scroll("left")}
+                hidden={isAtStart} // Disable if at the start
+                className={`p-1.5  md:p-2 h-full w-full`}
+              >
+                <ArrowBackIosRoundedIcon sx={{ fontSize }}/>
               </button>
             </div>
-            {!iscXLScreen && (
-              <div className={`w-fit h-fit rounded-full ${isAtEnd ? "bg-gray-100/50 border border-gray-200 cursor-not-allowed" : "bg-white border border-gray-200"}`}>
-                <button
-                  onClick={() => scroll("right")}
-                  disabled={isAtEnd} 
-                  className={`p-1.5 md:p-2 h-full w-full`}
-                >
-                  <ArrowForwardIosRoundedIcon  className={`${isAtEnd ? "text-teal-400/50" : "text-teal-400"}`} sx={{ fontSize }}/>
-                </button>
-              </div>)}
-          </div> 
-        </div> 
-        
-        <div 
-        ref={scrollRef}
-        className={`${iscXLScreen ? "grid grid-cols-5 gap-y-10 place-items-center" : "flex gap-3 md:gap-6 overflow-x-auto no-scrollbar"}`}> {/*""*/}
-          {categories.map((category, index) => (
-            <CategoryCard key={index} {...category} />
-          ))}
+            <div className={`w-fit h-fit rounded-full ${isAtEnd ? "bg-gray-100/50 border border-gray-200 cursor-not-allowed" : "bg-white border border-gray-200"}`}>
+              <button
+                onClick={() => scroll("right")}
+                hidden={isAtEnd} // Disable if at the end
+                className={`p-1.5 md:p-2 h-full w-full`}
+              >
+                <ArrowForwardIosRoundedIcon sx={{ fontSize }}/>
+              </button>
+            </div>
+          </div>
+        <div className="p-4 sm:p-10 overflow-hidden">
+          <div
+            ref={scrollRef}
+            className="flex gap-3 md:gap-6 overflow-x-auto no-scrollbar"
+          >
+            {categories.map((category, index) => (
+              <CategoryCard key={index} {...category} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default _VeriProService;
+export default _Recommended;

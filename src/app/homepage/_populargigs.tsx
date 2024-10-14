@@ -37,7 +37,7 @@ const CategoryCard: React.FC<TaskCategory> = ({ username, level, description, av
         <div className='flex gap-4 pb-2.5 md:pb-5'>
             <div className='self-center relative flex items-center justify-center w-fit h-fit rounded-full'>
               <Avatar>
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+                <AvatarImage className="w-10 h-10" src="https://github.com/shadcn.png" alt="@shadcn" />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
               <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>

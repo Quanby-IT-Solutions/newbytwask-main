@@ -18,7 +18,7 @@ interface HeaderProps {
 const _Header: React.FC<HeaderProps> = ({ toggleRegisterModal, toggleLoginModal }) => {
   const { user, logout } = useAuth(); // Access global auth state via the useAuth hook
   const pathname = usePathname(); 
-  const isHomePage = pathname === '/homepage'; 
+  const isLandingPage = pathname === '/landing'; 
 
   return (
     <header className="bg-white text-black p-5 border-2 border-b-gray-200">
@@ -35,14 +35,14 @@ const _Header: React.FC<HeaderProps> = ({ toggleRegisterModal, toggleLoginModal 
         </a>
 
         {/* Desktop Navigation Links */}
-        <div className={`${isHomePage ? 'text-xl font-normal max-lg:hidden ' : 'text-lg font-semibold hidden md:flex'}`}>
+        <div className={`${!isLandingPage ? 'text-xl font-normal max-lg:hidden ' : 'text-lg font-semibold hidden md:flex'}`}>
           <ul className="flex gap-8 items-center">
             <li>
               <button className="hover:text-blue-500">
                 <b>Services</b>
               </button>
             </li>
-            {isHomePage && (
+            {!isLandingPage && (
               <li>
                 <button className="px-10 py-3 hover:bg-blue-500 text-blue-500 hover:text-white border-2 border-blue-500 rounded-xl ">
                   <b>Become a Tasker</b>
@@ -70,7 +70,7 @@ const _Header: React.FC<HeaderProps> = ({ toggleRegisterModal, toggleLoginModal 
         </div>
         <Popover>
           <PopoverTrigger asChild>
-            <Button variant="ghost" className={`${isHomePage ? 'lg:hidden' : 'md:hidden '}`}>
+            <Button variant="ghost" className={`${!isLandingPage ? 'lg:hidden' : 'md:hidden '}`}>
               <svg
                 className="h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const _Header: React.FC<HeaderProps> = ({ toggleRegisterModal, toggleLoginModal 
                   <b>Services</b>
                 </button>
               </li>
-              {isHomePage && (
+              {!isLandingPage && (
                 <li>
                   <button className="px-4 py-2 hover:bg-blue-500 text-blue-500 hover:text-white border-2 border-blue-500 rounded-lg ">
                     <b>Become a Tasker</b>

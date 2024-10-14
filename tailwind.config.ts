@@ -1,8 +1,9 @@
 import type { Config } from "tailwindcss";
+import plugin from "tailwindcss/plugin";
 
 const config: Config = {
-    darkMode: ["class"],
-    content: [
+  darkMode: ["class"],
+  content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
@@ -55,15 +56,67 @@ const config: Config = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+  			'detail-medium-contrast': 'var(--detail-medium-contrast)',
+  			'detail-high-contrast': 'var(--detail-high-contrast)',
+  			'text-body': 'var(--text-body)'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
+  		},
+  		spacing: {
+  			'slide-spacing': 'var(--slide-spacing)',
+  			'thumbs-slide-spacing': 'var(--thumbs-slide-spacing)'
+  		},
+  		height: {
+  			slide: 'var(--slide-height)',
+  			'thumbs-slide': 'var(--thumbs-slide-height)'
+  		},
+  		flexBasis: {
+  			slide: 'var(--slide-size)'
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    plugin(({ addUtilities }) => {
+      addUtilities({
+        '.touch-pan-y': {
+          'touch-action': 'pan-y',
+        },
+        '.touch-pinch-zoom': {
+          'touch-action': 'pinch-zoom',
+        },
+        '.translate-3d-0': {
+          transform: 'translate3d(0, 0, 0)',
+        },
+      });
+    }),
+  ],
 };
+
 export default config;

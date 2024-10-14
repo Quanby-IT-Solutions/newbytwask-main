@@ -1,0 +1,12 @@
+.embla {
+  --slide-height: 600px;
+  --slide-spacing: 1rem;
+  --slide-size: 100%;
+}
+.embla-thumbs {
+  --thumbs-slide-spacing: 0.8rem;
+  --thumbs-slide-height: 6rem;
+}
+.embla-thumbs__slide--selected .embla-thumbs__slide__number {
+  color: var(--text-body);
+}
