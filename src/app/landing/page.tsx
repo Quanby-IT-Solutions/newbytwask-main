@@ -13,6 +13,7 @@ import _Footer from "@/components/_footer";
 import _FramerMotionWrapper from "@/components/animations/_framermotionwrapper";
 import _GSAPAnimation from "@/components/animations/_gsapanimation";
 import _AuthSliderModal from "../(auth)/_authslidermodal";
+import MomentumScroll from "@/components/animations/_momentumscroll";
 
 const LandingPage = () => {
   const [openRegister, setOpenRegister] = useState(false);
@@ -32,48 +33,51 @@ const LandingPage = () => {
   };
 
   return (
-    <main className="w-full">
-      <_Header
-        toggleRegisterModal={toggleRegisterModal}
-        toggleLoginModal={toggleLoginModal}
-      />
+    <MomentumScroll>
+      <main className="w-full">
+        <_Header
+          toggleRegisterModal={toggleRegisterModal}
+          toggleLoginModal={toggleLoginModal}
+        />
 
-      {/* Hero Section Wrapped in Framer Motion Wrapper for Animation */}
-      <_FramerMotionWrapper>
-        <_HeroSection />
-      </_FramerMotionWrapper>
+        {/* Hero Section Wrapped in Framer Motion Wrapper for Animation */}
+        <_FramerMotionWrapper>
+          <_HeroSection />
+        </_FramerMotionWrapper>
 
-      {/* Some Custom Section with GSAP Animation */}
+        {/* Some Custom Section with GSAP Animation */}
 
-      <_GSAPAnimation>
-        <_Category />
-      </_GSAPAnimation>
-      
-      <_GSAPAnimation>
-        <_Contents />
-      </_GSAPAnimation>
+        <_GSAPAnimation>
+          <_Category />
+        </_GSAPAnimation>
+        
+        <_GSAPAnimation>
+          <_Contents />
+        </_GSAPAnimation>
 
-      <_GSAPAnimation>
-        <_Jobs />
-      </_GSAPAnimation>
+        <_GSAPAnimation>
+          <_Jobs />
+        </_GSAPAnimation>
 
-      <_GSAPAnimation>
-        <_News />
-      </_GSAPAnimation>
+        <_GSAPAnimation>
+          <_News />
+        </_GSAPAnimation>
 
-      <_GSAPAnimation>
-        <_Subscribe />
-      </_GSAPAnimation>
+        <_GSAPAnimation>
+          <_Subscribe />
+        </_GSAPAnimation>
 
-      <_Footer />
+        <_Footer />
 
-      {/* Render AuthSliderModal */}
-      <_AuthSliderModal
-        open={openRegister || openLogin}
-        onClose={closeModal}
-        isLogin={openLogin}
-      />
-    </main>
+        {/* Render AuthSliderModal */}
+        <_AuthSliderModal
+          open={openRegister || openLogin}
+          onClose={closeModal}
+          isLogin={openLogin}
+        />
+      </main>
+    </MomentumScroll>
+    
   );
 };
 

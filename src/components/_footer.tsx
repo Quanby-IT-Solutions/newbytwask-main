@@ -1,5 +1,8 @@
 "use client";
+
 import Link from "next/link";
+import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation'
 
 interface LinksInput {
   title: string;
@@ -24,6 +27,11 @@ const LinksSection: React.FC<LinksInput> = ({ title, links }) => {
 };
 
 const _Footer: React.FC = () => {
+  const pathname = usePathname(); 
+  const isLandingPage = pathname === '/landing';
+
+  const router = useRouter()
+
   const companyLinks = [
     { href: "/landing", label: "About Us" },
     { href: "/directory", label: "Contact Us" },
@@ -57,7 +65,9 @@ const _Footer: React.FC = () => {
       <div className="container mx-auto flex justify-evenly gap-8 px-10 md:px-20 text-lg max-lg:flex-col">
         {/* About Section */}
         <div className="w-[337px] max-lg:w-fit grid content-evenly max-lg:self-center gap-8">
-          <img className="h-[63px] max-lg:justify-self-center" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c393fb4d98d77eb3cb0ee04acb1cc7e93bc7d7784c5e8f8ef8df0c8320a2add1" alt="Company logo" />
+          <button onClick={() => router.push(isLandingPage ? '/landing' : '/homepage')}>
+            <img className="h-[63px] max-lg:justify-self-center" src="https://cdn.builder.io/api/v1/image/assets/TEMP/c393fb4d98d77eb3cb0ee04acb1cc7e93bc7d7784c5e8f8ef8df0c8320a2add1" alt="Company logo" />
+          </button>
           <div className="w-[329px] max-lg:w-fit text-lg max-md:text-base max-lg:text-center text-stone-200">
             <p>With lots of unique blocks, you can easily build a page without coding. Build your next landing page.</p>
           </div>

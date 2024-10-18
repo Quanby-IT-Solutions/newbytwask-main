@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from 'next/navigation';
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
@@ -106,23 +107,29 @@ const _Navbar: React.FC = () => {
     };
   }, [isMouseDown]);
 
+  const pathname = usePathname(); 
+  const isHomePage = pathname === '/homepage'; 
+  const isViewTaskPage = pathname === '/viewtask'; 
+
   return (
-    <header className="bg-white text-black md:px-4 py-2">
-      <nav className="flex items-center px-4 lg:px-8">
-        <motion.div
-          ref={scrollContainerRef}
-          className="flex flex-nowrap gap-5 overflow-x-auto no-scrollbar"
-          onMouseDown={handleMouseDown}
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          whileTap={{ cursor: "grabbing" }}
-        >
-          {categories.map((category, index) => (
-            <CategoryList key={index} {...category} />
-          ))}
-        </motion.div>
-      </nav>
-    </header>
+      <header className={`bg-white text-black ${(isHomePage || isViewTaskPage) ? 'md:px-4 py-2' : 'p-0'}`}>
+        {(isHomePage || isViewTaskPage) && (
+          <nav className="flex items-center px-4 lg:px-8">
+            <motion.div
+              ref={scrollContainerRef}
+              className="flex flex-nowrap gap-5 overflow-x-auto no-scrollbar"
+              onMouseDown={handleMouseDown}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              whileTap={{ cursor: "grabbing" }}
+            >
+              {categories.map((category, index) => (
+                <CategoryList key={index} {...category} />
+              ))}
+            </motion.div>
+          </nav>
+        )}
+      </header>
   );
 };
 

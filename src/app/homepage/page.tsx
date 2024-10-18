@@ -9,6 +9,7 @@ import _VeriProService from "./_veriproservice";
 import _Footer from "@/components/_footer";
 import _FramerMotionWrapper from "@/components/animations/_framermotionwrapper";
 import _AuthSliderModal from "../(auth)/_authslidermodal";
+import MomentumScroll from "@/components/animations/_momentumscroll";
 
 
 import { useState } from "react";
@@ -32,36 +33,39 @@ const TaskPage = () => {
   };
 
   return (
-    <main className="w-full gap-10">
-      <_Header toggleRegisterModal={toggleRegisterModal} toggleLoginModal={toggleLoginModal}/>
-      
-      <_Navbar />
+    <MomentumScroll>
+      <main className="w-full gap-10">
+        <_Header toggleRegisterModal={toggleRegisterModal} toggleLoginModal={toggleLoginModal}/>
+        
+        <_Navbar />
 
-      <_FramerMotionWrapper>
-        <_HeroCarousel />
-      </_FramerMotionWrapper>
+        <_FramerMotionWrapper>
+          <_HeroCarousel />
+        </_FramerMotionWrapper>
 
-      <_FramerMotionWrapper>
-        <_PopularGigs />
-      </_FramerMotionWrapper>
-      
-      <_FramerMotionWrapper>
-        <_MayLikeGigs />
-      </_FramerMotionWrapper>
+        <_FramerMotionWrapper>
+          <_PopularGigs />
+        </_FramerMotionWrapper>
+        
+        <_FramerMotionWrapper>
+          <_MayLikeGigs />
+        </_FramerMotionWrapper>
 
-      <_FramerMotionWrapper>
-        <_VeriProService />
-      </_FramerMotionWrapper>
+        <_FramerMotionWrapper>
+          <_VeriProService />
+        </_FramerMotionWrapper>
 
-      <_Footer />
+        <_Footer />
 
-      {/* Render AuthSliderModal */}
-      <_AuthSliderModal
-        open={openRegister || openLogin}
-        onClose={closeModal}
-        isLogin={openLogin}
-      />
-    </main>
+        {/* Render AuthSliderModal */}
+        <_AuthSliderModal
+          open={openRegister || openLogin}
+          onClose={closeModal}
+          isLogin={openLogin}
+        />
+      </main>
+    </MomentumScroll>
+    
   );
 };
 
