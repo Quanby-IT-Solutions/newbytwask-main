@@ -50,7 +50,7 @@ const _TaskTitle = () => {
             </Avatar>
             <div className="absolute top-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></div>
           </div>
-          <p className="text-base md:text-lg font-semibold text-gray bg-blend-normal">airb123</p>
+          <p className="text-base md:text-lg font-semibold text-gray bg-blend-normal">Boss JOSK</p>
           <p className="text-lg md:text-xl text-gray text-gray-500 font-medium text-gray bg-blend-normal">Level 2 Tasker</p>
         </div>
 

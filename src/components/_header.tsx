@@ -45,30 +45,30 @@ const _Header: React.FC<HeaderProps> = ({ toggleRegisterModal, toggleLoginModal 
           <div className={`${!isLandingPage ? 'text-xl font-normal max-lg:hidden ' : 'text-lg font-semibold hidden md:flex'}`}>
             <ul className="flex gap-8 items-center">
               <li>
-                <button className="hover:text-blue-500">
+                <button className="hover:text-blue-500 transition ease-in-out duration-300">
                   <b>Services</b>
                 </button>
               </li>
               {(!isLandingPage && !isBecomeTaskerPage) && (
                 <li>
-                  <button onClick={() => router.push('/becometasker')} className="px-10 py-3 hover:bg-blue-500 text-blue-500 hover:text-white border-2 border-blue-500 rounded-xl ">
+                  <button onClick={() => router.push('/becometasker')} className="px-10 py-3 hover:bg-blue-500 text-blue-500 hover:text-white border-2 border-blue-500 rounded-xl transition ease-in-out duration-300">
                     <b>Become a Tasker</b>
                   </button>
                 </li>
               )}
               {!user ? (
                 <li>
-                  <button onClick={toggleRegisterModal} className="hover:text-blue-500">
+                  <button onClick={toggleRegisterModal} className="hover:text-blue-500 transition ease-in-out duration-300">
                     <b>Sign up</b>
                   </button>
                   <b> / </b>
-                  <button onClick={toggleLoginModal} className="hover:text-blue-500">
+                  <button onClick={toggleLoginModal} className="hover:text-blue-500 transition ease-in-out duration-300">
                     <b>Log in</b>
                   </button>
                 </li>
               ) : (
                 <li>
-                  <button onClick={logout} className="hover:text-blue-500">
+                  <button onClick={logout} className="hover:text-blue-500 transition ease-in-out duration-300">
                     Logout
                   </button>
                 </li>
@@ -97,30 +97,30 @@ const _Header: React.FC<HeaderProps> = ({ toggleRegisterModal, toggleLoginModal 
             <PopoverContent className="w-50 p-5">
             <ul className="flex flex-col gap-8 items-center text-regula\">
                 <li>
-                  <button className="hover:text-blue-500">
+                  <button className="hover:text-blue-500 transition ease-in-out duration-300">
                     <b>Services</b>
                   </button>
                 </li>
                 {(!isLandingPage && !isBecomeTaskerPage) && (
                   <li>
-                    <button onClick={() => router.push('/becometasker')} className="px-4 py-2 hover:bg-blue-500 text-blue-500 hover:text-white border-2 border-blue-500 rounded-lg ">
+                    <button onClick={() => router.push('/becometasker')} className="px-4 py-2 hover:bg-blue-500 text-blue-500 hover:text-white border-2 border-blue-500 rounded-lg transition ease-in-out duration-300">
                       <b>Become a Tasker</b>
                     </button>
                   </li>
                 )}
                 {!user ? (
                   <li>
-                    <button onClick={toggleRegisterModal} className="hover:text-blue-500">
+                    <button onClick={toggleRegisterModal} className="hover:text-blue-500 transition ease-in-out duration-300">
                       <b>Sign up</b>
                     </button>
                     <b> / </b>
-                    <button onClick={toggleLoginModal} className="hover:text-blue-500">
+                    <button onClick={toggleLoginModal} className="hover:text-blue-500 transition ease-in-out duration-300">
                       <b>Log in</b>
                     </button>
                   </li>
                 ) : (
                   <li>
-                    <button onClick={logout} className="hover:text-blue-500">
+                    <button onClick={logout} className="hover:text-blue-500 transition ease-in-out duration-300">
                       Logout
                     </button>
                   </li>
