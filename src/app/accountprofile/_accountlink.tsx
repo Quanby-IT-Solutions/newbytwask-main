@@ -21,7 +21,7 @@ const _AccountLink = () => {
       <div className="grid grid-cols-5">
         <button className='self-center relative flex items-center justify-center w-fit h-fit rounded-full group hover:scale-75 transition ease-in-out duration-300'>
           <Avatar>
-            <AvatarImage className="w-15 h-15 opacity-50 group-hover:opacity-25 transition ease-in-out duration-300" src="https://img.icons8.com/color/500/github--v1.png" alt="@shadcn" />
+            <AvatarImage className="w-12 h-12 opacity-50 group-hover:opacity-25 transition ease-in-out duration-300" src="https://img.icons8.com/color/500/github--v1.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <AddCircleIcon sx={{ fontSize: 24, color: blue[500] }} className="absolute bottom-0 group-hover:-translate-y-5 right-0 bg-white rounded-full border-2 border-white opacity-75 group-hover:opacity-100 group-hover:scale-150 transition ease-in-out duration-300" />
@@ -29,7 +29,7 @@ const _AccountLink = () => {
 
         <button className='self-center relative flex items-center justify-center w-fit h-fit rounded-full group hover:scale-75 transition ease-in-out duration-300'>
           <Avatar>
-            <AvatarImage className="w-15 h-15 opacity-50 group-hover:opacity-25 transition ease-in-out duration-300" src="https://img.icons8.com/color/500/google-logo.png" alt="@shadcn" />
+            <AvatarImage className="w-12 h-12 opacity-50 group-hover:opacity-25 transition ease-in-out duration-300" src="https://img.icons8.com/color/500/google-logo.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <AddCircleIcon sx={{ fontSize: 24, color: blue[500] }} className="absolute bottom-0 group-hover:-translate-y-5 right-0 bg-white rounded-full border-2 border-white opacity-75 group-hover:opacity-100 group-hover:scale-150 transition ease-in-out duration-300" />
@@ -37,7 +37,7 @@ const _AccountLink = () => {
 
         <button className='self-center relative flex items-center justify-center w-fit h-fit rounded-full group hover:scale-75 transition ease-in-out duration-300'>
           <Avatar>
-            <AvatarImage className="w-15 h-15 opacity-50 group-hover:opacity-25 transition ease-in-out duration-300" src="https://img.icons8.com/fluency/500/facebook-new.png" alt="@shadcn" />
+            <AvatarImage className="w-12 h-12 opacity-50 group-hover:opacity-25 transition ease-in-out duration-300" src="https://img.icons8.com/fluency/500/facebook-new.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <AddCircleIcon sx={{ fontSize: 24, color: blue[500] }} className="absolute bottom-0 group-hover:-translate-y-5 right-0 bg-white rounded-full border-2 border-white opacity-75 group-hover:opacity-100 group-hover:scale-150 transition ease-in-out duration-300" />
@@ -45,7 +45,7 @@ const _AccountLink = () => {
 
         <button className='self-center relative flex items-center justify-center w-fit h-fit rounded-full group hover:scale-75 transition ease-in-out duration-300'>
           <Avatar>
-            <AvatarImage className="w-15 h-15 opacity-50 group-hover:opacity-25 transition ease-in-out duration-300" src="https://img.icons8.com/fluency/500/instagram-new.png" alt="@shadcn" />
+            <AvatarImage className="w-12 h-12 opacity-50 group-hover:opacity-25 transition ease-in-out duration-300" src="https://img.icons8.com/fluency/500/instagram-new.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <AddCircleIcon sx={{ fontSize: 24, color: blue[500] }} className="absolute bottom-0 group-hover:-translate-y-5 right-0 bg-white rounded-full border-2 border-white opacity-75 group-hover:opacity-100 group-hover:scale-150 transition ease-in-out duration-300" />
@@ -53,7 +53,7 @@ const _AccountLink = () => {
 
         <button className='self-center relative flex items-center justify-center w-fit h-fit rounded-full group hover:scale-75 transition ease-in-out duration-300'>
           <Avatar>
-            <AvatarImage className="w-15 h-15 opacity-50 group-hover:opacity-25 transition ease-in-out duration-300" src="https://img.icons8.com/ios-filled/500/twitterx--v1.png" alt="@shadcn" />
+            <AvatarImage className="w-12 h-12 opacity-50 group-hover:opacity-25 transition ease-in-out duration-300" src="https://img.icons8.com/ios-filled/500/twitterx--v1.png" alt="@shadcn" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
           <AddCircleIcon sx={{ fontSize: 24, color: blue[500] }} className="absolute bottom-0 group-hover:-translate-y-5 right-0 bg-white rounded-full border-2 border-white opacity-75 group-hover:opacity-100 group-hover:scale-150 transition ease-in-out duration-300" />
